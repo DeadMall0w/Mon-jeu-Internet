@@ -10,10 +10,11 @@ const ctx = canvas.getContext('2d');
 // Fonction pour créer une grille de la taille spécifiée
 
 class Pion {
-    constructor(x, y, player) {
+    constructor(x, y, player, sprite) {
       this.x = x;
       this.y = y;
       this.player = player;
+      this.sprite = sprite
     }
 
     
@@ -40,22 +41,18 @@ function createGrid(rows, cols) {
     }
 }
 
-
-
-function removeSquare(row, col, squareSize) {
-    ctx.clearRect(col * squareSize, row * squareSize, squareSize, squareSize);
-}
-
 function drawSprite(sprite, row, col) {
     const img = new Image();
     img.src = sprite;
     
     img.onload = function() {
-        ctx.drawImage(img, col * squareSize, row * squareSize, squareSize, squareSize);
+            ctx.clearRect(col * squareSize, row * squareSize, squareSize, squareSize); // Efface la zone du sprite précédent
+            ctx.drawImage(img, col * squareSize, row * squareSize, squareSize, squareSize); // Dessine le nouveau sprite
     };
+    return img
 }
 
-function CreateMap(){
+function createMap(){
     map = []
     for (var i = 0; i < width; i++) {
         map[i] = [];
@@ -73,24 +70,41 @@ function CreateMap(){
     return map;
 }
 
-function DrawMap(){
+function drawMap(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
     createGrid(width, height, 50)
     for (var i = 0; i < width; i++) {
         for (var j = 0; j < height; j++) {
             if (map[i][j].player == 1){
-                drawSprite("Img/X.png", i, j);
+                map[i][j].sprite = drawSprite("Img/X.png", i, j);
             }else if (map[i][j].player == 2){
-                drawSprite("Img/O.png", i, j);
+                map[i][j].sprite = drawSprite("Img/O.png", i, j);
             }
         }
     }
 }
 
 function Init(){
-    map = CreateMap();
-    DrawMap(map);
+    map = createMap();
+    drawMap(map);
     createGrid(width, height);
 
+    // ctx.clearRect(sprite.x, sprite.y, sprite.width, sprite.height); map[0][0].sprite = 0;
+    const sprite = map[0][0].sprite;
+
+    console.log(sprite);
+
+    //Je veux supprimer 'sprite' pour qu'il ne soit plus affiché a l'écran
+    // Effacer le sprite du canvas
+    ctx.clearRect(sprite.x * squareSize, sprite.y * squareSize, squareSize, squareSize);
+
+    // Réinitialiser le sprite du premier pion pour qu'il ne soit plus affiché
+    map[0][0].sprite = null;
+
+    console.log("Le premier pion a été supprimé avec succès.");
 }
 
 
