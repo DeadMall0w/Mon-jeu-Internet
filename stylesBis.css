@@ -1,0 +1,18 @@
+.board {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.point {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+body {
+    background-color:rgb(44, 44, 44);
+}
