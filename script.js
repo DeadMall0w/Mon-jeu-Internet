@@ -77,10 +77,9 @@ function DrawMap(){
     createGrid(width, height, 50)
     for (var i = 0; i < width; i++) {
         for (var j = 0; j < height; j++) {
-            console.log(map[i][j].joueur );
-            if (map[i][j].joueur == 1){
+            if (map[i][j].player == 1){
                 drawSprite("Img/X.png", i, j);
-            }else if (map[i][j].joueur == 2){
+            }else if (map[i][j].player == 2){
                 drawSprite("Img/O.png", i, j);
             }
         }
