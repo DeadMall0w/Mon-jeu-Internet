@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createPointOnGrid(row, col, player) {
-        if (map[row][col].player == 0) {
+        // if (map[row][col].player == 0) {
             map[row][col] = new Pion(row, col, player);
-        }
+        // }
     }
     function removePoint(x, y) {
         const row = Math.floor(y / cellSize);
