@@ -6,13 +6,16 @@ class Pion {
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
+    let tour = 1; // 1 = joueur 1, 2 = joueur 2
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
     const gridSize = 8;
     const cellSize = canvas.width / gridSize;
     let map = [];
     let selectedPiece = null;
+    let moves = [];
 
     function createMap(){
         for (var i = 0; i < gridSize; i++) {
@@ -70,7 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function removePointOnGrid(row, col) {
         map[row][col].player = 0; // Réinitialiser le joueur à 0 pour supprimer le pion
-        console.log(map[row][col].player);
+        // console.log(map[row][col].player);
+    }
+    function drawPointImage(i, j, img) {
+        const image = new Image();
+        image.src = img;
+        image.onload = function() {
+            ctx.drawImage(image, i * cellSize, j * cellSize, cellSize, cellSize);
+        }
     }
 
     function drawPoints() {
@@ -86,26 +96,90 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function drawPointImage(i, j, img) {
-        const image = new Image();
-        image.src = img;
-        image.onload = function() {
-            ctx.drawImage(image, i * cellSize, j * cellSize, cellSize, cellSize);
+    function showMoves(moves){
+        for (let index = 0; index < moves.length; index++) {
+            drawPointImage(moves[index][1],moves[index][0], "Img/M.png"); 
+            // console.log(moves[index][0],moves[index][1]);
         }
     }
 
+    function tryAddMove(move){
+        // console.log(map[move[0]][move[1]], move[0], move[1]);
+        if (map[move[0]][move[1]].player == tour){
+            return;
+        }
+        moves.push(move);
+    }
+
+    function getMoves(y,x){
+        draw();
+        moves = [];
+        // console.log("étude du joueur en ", x, y, map[y][x]);
+        let pion = map[y][x];
+        //si c'est le bon tour
+        if (pion.player != tour){
+            return;
+        }
+        // regarder s'il exite des cases a gauche
+        // drawPointImage(y+1, x+1, "Img/M.png");
+
+        // Ajout des mouvements en diagonal
+        if(y == gridSize-1){
+            tryAddMove([y,x+1]);
+            tryAddMove([y-1,x+1]);
+        }else if(y == 0){
+            tryAddMove([y+1,x+1]);
+            tryAddMove([y,x+1]);
+        }else{
+            tryAddMove([y+1,x+1]);
+            tryAddMove([y-1,x+1]);
+        }
+
+        //Check if there is a player in front
+        if (map[y][x+1].player == tour){
+            tryAddMove([y,x+2]);
+            tryAddMove([y-1,x+2]);
+            tryAddMove([y+1,x+2]);
+        }
+        
+        
+        
+        showMoves(moves);
+    }
+    
     // Function to handle mouse down events on the canvas
     canvas.addEventListener('mousedown', function(event) {
-        console.log("Mouse down");
+        // console.log("Mouse down");
         const x = event.offsetX;
         const y = event.offsetY;
         selectedPiece = getPieceAtPosition(x, y);
+        const row =  Math.floor(y / cellSize);
+        const col = Math.floor(x / cellSize);
+        getMoves(row, col);
     });
 
     // Function to handle mouse move events on the document
     canvas.addEventListener('mousemove', function(event) {
 
     });
+
+    function listePresente(listePrincipale, listeRecherchee) {
+        for (let sousListe of listePrincipale) {
+            let correspond = true;
+            if (sousListe.length === listeRecherchee.length) {
+                for (let i = 0; i < sousListe.length; i++) {
+                    if (sousListe[i] !== listeRecherchee[i]) {
+                        correspond = false;
+                        break;
+                    }
+                }
+                if (correspond) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     // Function to handle mouse up events on the document
     canvas.addEventListener('mouseup', function(event) {
@@ -118,12 +192,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const newRow =  Math.floor(y / cellSize);
             const newCol = Math.floor(x / cellSize);
-            if (deleteRow == newRow && deleteCol == newCol){
-                return;
+            // console.log(moves,[newRow, newCol],moves.includes([newRow, newCol]));
+            if (listePresente(moves,[newRow, newCol])){
+
+                if (deleteRow == newRow && deleteCol == newCol){
+                    return;
+                }
+                createPointOnGrid(newRow,newCol,selectedPiece.player)
+                removePointOnGrid(deleteRow,deleteCol);
+                draw();
             }
-            createPointOnGrid(newRow,newCol,selectedPiece.player)
-            removePointOnGrid(deleteRow,deleteCol);
-            draw();
         }
         selectedPiece = null;
     });
@@ -139,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.addEventListener('click', function(event) {
         const x = event.offsetX;
         const y = event.offsetY;
-        // createPoint(x, y,2);
     });
 
     // Function to handle click events for removing points
@@ -153,5 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Draw the grid initially
     createMap();
+    // drawMoves(1,3);
+    // drawPointImage(1, 3, "Img/M.png");
     draw();
 });
