@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let tour = 1; // 1 = joueur 1, 2 = joueur 2
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
-    const gridSize = 8;
+    const gridSize = 6;
     const cellSize = canvas.width / gridSize;
     let map = [];
     let selectedPiece = null;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (j == 0){
                     map[i][j] = new Pion(i,j,1);
                 }else if (j == gridSize-1){
-                    map[i][j] = new Pion(i,j,2);
+                    map[i][j] = new Pion(i,j,-1);
                 }else {
                     map[i][j] = new Pion(i,j,0);
                 }
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const point = map[i][j];
                 if (point.player == 1){
                     drawPointImage(j,i, "Img/X.png");
-                }else if (point.player == 2){
+                }else if (point.player == -1){
                     drawPointImage(j,i, "Img/O.png");
                 }
             }    
@@ -99,16 +99,41 @@ document.addEventListener('DOMContentLoaded', function() {
     function showMoves(moves){
         for (let index = 0; index < moves.length; index++) {
             drawPointImage(moves[index][1],moves[index][0], "Img/M.png"); 
-            // console.log(moves[index][0],moves[index][1]);
         }
     }
 
     function tryAddMove(move){
-        // console.log(map[move[0]][move[1]], move[0], move[1]);
-        if (map[move[0]][move[1]].player == tour){
+        x = move[0]
+        y = move[1]
+        if(x == gridSize || y == gridSize || x == -1 || y == -1){
+            return;
+        }
+
+        if (map[x][y].player == tour){
             return;
         }
         moves.push(move);
+    }
+
+    function isLock(x,y){
+        neightbour = [];
+        if(x != gridSize-1){
+            neightbour.push(map[y][x+1].player);
+        }
+
+        if(y != gridSize-1){
+            neightbour.push(map[y+1][x].player);
+        }
+
+        if (x != 0){
+            neightbour.push(map[y][x-1].player);
+        }
+
+        if (y != 0){
+            neightbour.push(map[y-1][x].player);
+        }
+
+        return neightbour.includes(tour*-1);
     }
 
     function getMoves(y,x){
@@ -120,30 +145,33 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pion.player != tour){
             return;
         }
-        // regarder s'il exite des cases a gauche
-        // drawPointImage(y+1, x+1, "Img/M.png");
+
+        // Check for locking position
+        if(isLock(x,y)){
+            return;
+        }
 
         // Ajout des mouvements en diagonal
         if(y == gridSize-1){
-            tryAddMove([y,x+1]);
-            tryAddMove([y-1,x+1]);
+            tryAddMove([y,x+tour]);
+            tryAddMove([y-1,x+tour]);
         }else if(y == 0){
-            tryAddMove([y+1,x+1]);
-            tryAddMove([y,x+1]);
+            tryAddMove([y+1,x+tour]);
+            tryAddMove([y,x+tour]);
         }else{
-            tryAddMove([y+1,x+1]);
-            tryAddMove([y-1,x+1]);
+            tryAddMove([y+1,x+tour]);
+            tryAddMove([y-1,x+tour]);
         }
 
         //Check if there is a player in front
-        if (map[y][x+1].player == tour){
-            tryAddMove([y,x+2]);
-            tryAddMove([y-1,x+2]);
-            tryAddMove([y+1,x+2]);
+        if (map[y][x+tour].player == tour){
+            tryAddMove([y,x+(tour*2)]);
+            tryAddMove([y-1,x+(tour*2)]);
+            tryAddMove([y+1,x+(tour*2)]);
         }
         
         
-        
+        // console.log(moves);
         showMoves(moves);
     }
     
@@ -192,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const newRow =  Math.floor(y / cellSize);
             const newCol = Math.floor(x / cellSize);
-            // console.log(moves,[newRow, newCol],moves.includes([newRow, newCol]));
+
             if (listePresente(moves,[newRow, newCol])){
 
                 if (deleteRow == newRow && deleteCol == newCol){
@@ -201,6 +229,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 createPointOnGrid(newRow,newCol,selectedPiece.player)
                 removePointOnGrid(deleteRow,deleteCol);
                 draw();
+
+                if(tour == 1){
+                    tour = -1;
+                }else{
+                    tour = 1;
+                }
+
+                // check for victory
+                if (tour == 1){
+                    // for
+                }
             }
         }
         selectedPiece = null;
