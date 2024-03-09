@@ -115,7 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
         moves.push(move);
     }
 
+    // Checks if the given position is a locking position for the current player.
     function isLock(x,y){
+        if(map[y][x].player == 1 && x == gridSize-1){
+            return true;
+        }
+        if(map[y][x].player == -1 && x == 0){
+            return true;
+        }
+
         neightbour = [];
         if(x != gridSize-1){
             neightbour.push(map[y][x+1].player);
@@ -148,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check for locking position
         if(isLock(x,y)){
+            console.log("lock !");
             return;
         }
 
@@ -236,13 +245,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     tour = 1;
                 }
 
-                // check for victory
-                if (tour == 1){
-                    // for
+                allLock = true;
+                for (let y = 0; y  < gridSize; y++) {
+                    for (let x = 0; x  < gridSize; x++) {
+                        if(map[y][x].player == tour){
+                            if(!isLock(x,y)){
+                                allLock = false;
+                            }
+                        }
+                    }
+                }
+                if(allLock){
+                    console.log("aucun move possible");
                 }
             }
         }
         selectedPiece = null;
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === ' ') {
+            console.log(map);
+        }
     });
 
     // Function to get the piece at specified coordinates
@@ -269,7 +293,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Draw the grid initially
     createMap();
-    // drawMoves(1,3);
-    // drawPointImage(1, 3, "Img/M.png");
     draw();
 });
