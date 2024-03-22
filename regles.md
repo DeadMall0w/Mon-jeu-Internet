@@ -2,10 +2,14 @@
 
 # Regles
 ## Jeux 
-Chaque joueur joue à tour de rôle.
-![Image début de partie](Img/Regles/shéma_debut_partie.png)
-Pion du joueur 1 :
+Voici les regles de mon jeu.
+Ce jeu se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
 ![X](Img/Regles/players.png)
+Le jeu se joue en tour par tour sur une grile d'une taille variable.
+Les joueurs commencent chacun d'un coté du plateau.
+Chaque joueur joue à tour de rôle.
+![Image début de partie](Img/Regles/shema_debut_partie.png) 
+
 ## Début de partie
 Une partie se compose de 2 manches.
 - Lors de la première manche, c'est le joueur X qui commence.
