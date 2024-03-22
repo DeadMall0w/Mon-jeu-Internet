@@ -2,17 +2,20 @@
 
 # Regles
 ## Jeux 
-
+Chaque joueur joue à tour de rôle.
+![Image début de partie](Img/Regles/shéma_debut_partie.png)
+Pion du joueur 1 :
+![X](Img/Regles/players.png)
 ## Début de partie
 Une partie se compose de 2 manches.
 - Lors de la première manche, c'est le joueur X qui commence.
 - Lors de la seconde manche, c'est le joueur O qui commence.
-Chaque joueur joue à tour de rôle.
+
 Le joueur gagnant est celui qui remporte le plus de manches.
 
 ## Jouabilité
 Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond.
-![Image pion mouvement](Img/possible_move_black.png)
+![Image pion mouvement](Img/Regles/possible_move_black.png)
 Pour déplacer le pion, il suffit de rester appuyé dessus et de le glisser vers la case suivante. Attention, si un mouvement n'est pas valide, le pion ne bouge pas.
 
 ## Mouvements
