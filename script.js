@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (var j = 0; j < gridSize; j++) {
                 const point = map[i][j];
                 if (point.player == 1){
-                    drawPointImage(j,i, "Img/X.png");
+                    drawPointImage(j,i, "Img/x.png");
                 }else if (point.player == -1){
                     drawPointImage(j,i, "Img/O.png");
                 }
