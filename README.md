@@ -5,10 +5,12 @@ C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable sur [
 ## Jeux 
 Voici les regles de mon jeu.
 Ce jeu se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
+
 ![X](Img/Regles/players.png)
 Le jeu se joue en tour par tour sur une grile d'une taille variable.
 Les joueurs commencent chacun d'un coté du plateau.
 Chaque joueur joue à tour de rôle.
+
 ![Image début de partie](Img/Regles/shema_debut_partie.png) 
 
 ## Début de partie
@@ -20,6 +22,7 @@ Le joueur gagnant est celui qui remporte le plus de manches.
 
 ## Jouabilité
 Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond.
+
 ![Image pion mouvement](Img/Regles/possible_move_black.png)
 Pour déplacer le pion, il suffit de rester appuyé dessus et de le glisser vers la case suivante. Attention, si un mouvement n'est pas valide, le pion ne bouge pas.
 
@@ -43,7 +46,8 @@ Un pion peut bloquer un autre pion et l'empêcher de bouger en étant à côté 
 > Ici, le pion X est bloqué car un pion ennemi le bloque, il ne peut donc pas bouger.
 
 ### Pion capturé
-Un pion peut être capturé en se déplaçant dessus.  
+Un pion peut être capturé en se déplaçant dessus. 
+ 
 ![Pion bloqué](Img/Regles/pion_capture.png)
 > Ici, le pion X se déplace sur le pion O, capturant ainsi le pion O.
 
