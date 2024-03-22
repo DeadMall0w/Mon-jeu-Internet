@@ -1,7 +1,5 @@
-# Création
-
-# License
-
+# Introduction
+C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable sur [[LIEN]] 
 
 # Regles
 ## Jeux 
