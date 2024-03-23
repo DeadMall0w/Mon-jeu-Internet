@@ -34,11 +34,14 @@ Les pions peuvent avancer uniquement vers l'avant.
 
 ### Pions seuls
 ![Pion seul](Img/Regles/mouvement_seul.png)
+
 Un pion seul, peut se déplacer vers l'avant en diagonal uniqument.
 
 ### Avec pion allié devant
 Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-dessus, en dessous, devant ou en diagonale par rapport au pion allié.
+
 ![Pion avec allié](Img/Regles/mouvement_pion_allie2.png)
+
 > Ici, les pions arrière (le pion X le plus à droite, le pion O le plus à gauche) ont plus de mouvements possibles.
 > Les pions devant, ont les meme mouvements qu'un pion seul.
 
@@ -46,12 +49,14 @@ Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-d
 Un pion peut bloquer un autre pion et l'empêcher de bouger en étant à côté (au-dessus, en dessous, devant, derrière). Le pion ne peut alors plus se déplacer.
 
 ![Pion bloqué](Img/Regles/pion_bloque.png)
+
 > Ici, le pion X et le pion O sont bloqué car un pion ennemi les bloque, ils ne peuvent donc pas bouger.
 
 ### Pion capturé
 Un pion peut être capturé en se déplaçant dessus. 
  
 ![Pion bloqué](Img/Regles/pion_capture.png)
+
 > Ici, le pion X se déplace sur le pion O, capturant ainsi le pion O.
 
 
