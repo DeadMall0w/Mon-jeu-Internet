@@ -25,6 +25,7 @@ Le joueur gagnant est celui qui remporte le plus de manches.
 Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond.
 
 ![Image pion mouvement](Img/Regles/possible_move_black.png)
+
 Pour déplacer le pion, il suffit de rester appuyé dessus et de le glisser vers la case suivante. Attention, si un mouvement n'est pas valide, le pion ne bouge pas.
 
 ## Mouvements
