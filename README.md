@@ -7,6 +7,7 @@ Voici les règles de mon jeu.
 Ce jeu se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
 
 ![X](Img/Regles/players.png)
+
 Le jeu se joue en tour par tour sur une grile d'une taille variable.
 Les joueurs commencent chacun d'un coté du plateau.
 Chaque joueur joue à tour de rôle.
