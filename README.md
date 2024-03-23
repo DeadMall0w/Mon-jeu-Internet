@@ -30,13 +30,14 @@ Pour déplacer le pion, il suffit de rester appuyé dessus et de le glisser vers
 
 ## Mouvements
 ### Base
-Les pions peuvent avancer uniquement vers l'avant. Les pions X ne peuvent bouger que vers la droite et les pions O uniquement vers la gauche. Un pion seul peut se déplacer uniquement en avant et en diagonale.
+Les pions peuvent avancer uniquement vers l'avant. 
 
 ### Pions seuls
 ![Pion seul](Img/Regles/mouvement_seul.png)
-Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-dessus, en dessous, devant ou en diagonale par rapport au pion allié.
+Un pion seul, peut se déplacer vers l'avant en diagonal uniqument.
 
 ### Avec pion allié devant
+Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-dessus, en dessous, devant ou en diagonale par rapport au pion allié.
 ![Pion avec allié](Img/Regles/mouvement_pion_allie2.png)
 > Ici, les pions arrière (le pion X le plus à droite, le pion O le plus à gauche) ont plus de mouvements possibles.
 > Les pions devant, ont les meme mouvements qu'un pion seul.
