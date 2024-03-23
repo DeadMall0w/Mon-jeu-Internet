@@ -43,7 +43,7 @@ Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-d
 Un pion peut bloquer un autre pion et l'empêcher de bouger en étant à côté (au-dessus, en dessous, devant, derrière). Le pion ne peut alors plus se déplacer.
 
 ![Pion bloqué](Img/Regles/pion_bloque.png)
-> Ici, le pion X est bloqué car un pion ennemi le bloque, il ne peut donc pas bouger.
+> Ici, le pion X et le pion O sont bloqué car un pion ennemi les bloque, ils ne peuvent donc pas bouger.
 
 ### Pion capturé
 Un pion peut être capturé en se déplaçant dessus. 
