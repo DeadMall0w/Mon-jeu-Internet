@@ -2,8 +2,8 @@
 C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable [ici](https://deadmall0w.github.io/Mon-jeu-Internet/)
 
 # Regles
-## Jeux 
-Voici les regles de mon jeu.
+## Introduction
+Voici les règles de mon jeu.
 Ce jeu se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
 
 ![X](Img/Regles/players.png)
