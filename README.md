@@ -1,5 +1,5 @@
 # Introduction
-C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable sur [[LIEN]] 
+C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable [[[ici](https://deadmall0w.github.io/Mon-jeu-Internet/)
 
 # Regles
 ## Jeux 
