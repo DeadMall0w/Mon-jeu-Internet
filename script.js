@@ -15,13 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let map = [];
     let selectedPiece = null;
     let moves = [];
-    
-    // canvas.width = gridSize * 100;
-    // canvas.height = gridSize * 100;
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
 
-    const cellSize = canvas.height / gridSize;
+    canvas.width = window.innerWidth-100;
+    canvas.height = window.innerHeight;
+
+    let cellSize =  Math.min(canvas.height / gridSize, canvas.width / gridSize);
+
+
+    window.addEventListener('resize', function(event) {
+        UpdateCanvasSize();
+    }, true);
+    
+    
+    function UpdateCanvasSize() {
+        canvas.width = window.innerWidth-100;
+        canvas.height = window.innerHeight;
+    
+        cellSize =  Math.min(canvas.height / gridSize, canvas.width / gridSize);
+        draw();
+    }
+    
+
     function createMap(){
         for (var i = 0; i < gridSize; i++) {
             map[i] = [];

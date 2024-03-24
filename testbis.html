@@ -14,28 +14,17 @@
     .container {
         display: flex;
         flex-direction: row;
-        height: 100%;
     }
 
-    .left {
+    #left {
         flex-grow: 1;
-        max-height: 100vh; /* Hauteur maximale de la div gauche à la hauteur de la fenêtre */
-        overflow: hidden; /* Masquer le débordement */
+        max-height: 100vh;
+        overflow: hidden;
     }
 
-    /* .left #board {
-        width: 100%; /* Prend toute la largeur disponible */
-        /* height: 100%;  */
-        /* display: block;  Pour supprimer l'espace ajouté par la balise canvas */ */
-    /* }  */
-    .test {
-    background-color: red;
-    width: 100%;
-    height: 100%;
-    }
 
     .right {
-        flex-basis: 100px; /* taille fixe */
+        flex-basis: 100px;
         background-color: lightgreen;
     }
 </style>
