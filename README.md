@@ -12,13 +12,15 @@ Le jeu se joue en tour par tour sur une grile de taille variable.
 Les joueurs commencent chacun d'un coté du plateau.
 
 ![Image début de partie](Img/Regles/shema_debut_partie.png) 
+### But
+Le but est de coincé ou capturer tous les pions adversaire en plaçant nos pions de façon a prévoir les prochains mouvments de l'adversaire.
 
 ## Début de partie
-Une partie se compose de 2 manches.
-- Lors de la première manche, c'est le joueur X qui commence.
-- Lors de la seconde manche, c'est le joueur O qui commence.
+Une partie se compose d'un nombre pair manches.
+- Lors des manches pairs manche, c'est le joueur X qui commence.
+- Lors des manches impairs, c'est le joueur O qui commence.
 
-Le joueur gagnant est celui qui remporte le plus de manches.
+Le gagnant est le joueur qui a gagné le plus de manche.
 
 ## Jouabilité
 Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond.
@@ -36,7 +38,7 @@ Les pions peuvent avancer uniquement vers l'avant.
 
 Un pion seul, peut se déplacer vers l'avant en diagonal uniqument.
 
-### Avec pion allié devant
+### Avec un pion allié devant
 Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-dessus, en dessous, devant ou en diagonale par rapport au pion allié.
 
 ![Pion avec allié](Img/Regles/mouvement_pion_allie2.png)
