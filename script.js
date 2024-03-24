@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const playerTurn = document.getElementById('Player-turn');
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
+    const victoryList = document.getElementById("victory-list");
 
-    const gridSize = 6;
+    let gridSize = 6;
 
     let map = [];
     let selectedPiece = null;
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function(event) {
         UpdateCanvasSize();
     }, true);
-    
+
     function UpdateCanvasSize() {
         canvas.width = window.innerWidth-400;
         canvas.height = window.innerHeight;
@@ -53,6 +54,22 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Player 1 start");
         }
         UpdatePlayerTurn();
+    }
+
+    function AddVictory(winner){
+        var newLi = document.createElement("li");
+        newLi.textContent = "Manche " + roundIndex + " : " + winner; // Vous pouvez changer le "O" pour le résultat désiré
+        victoryList.appendChild(newLi)
+        console.log("Victory : ", winner);
+      }
+
+    function finishRound(winner){
+        console.log("End of round : ", roundIndex);
+        if (winner == 1){
+            console.log("Player 1 win");
+        }else {
+            console.log("Player 2 win");
+        }
     }
 
     function createMap(){
