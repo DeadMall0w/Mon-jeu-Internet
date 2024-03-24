@@ -6,14 +6,18 @@ class Pion {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
     //#region Initialization
-    const playerTurn = document.getElementById('Player-turn');
+    let mancheIndex = 0;
     let tour = 1; // 1 = joueur 1, 2 = joueur 2
+
+    const mancheText = document.getElementById('Manche-index');
+    const playerTurn = document.getElementById('Player-turn');
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
+
     const gridSize = 6;
+
     let map = [];
     let selectedPiece = null;
     let moves = [];
@@ -38,6 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
         draw();
     }
     
+    function StartManche(){
+        mancheIndex++;
+        console.log("Lancement manche : ", mancheIndex);
+        mancheText.innerHTML = "Manche : " + mancheIndex;
+        if (mancheIndex%2==0){
+            tour = 1;
+        }else{
+            tour = -1;
+        }
+        UpdatePlayerTurn();
+    }
 
     function createMap(){
         for (var i = 0; i < gridSize; i++) {
@@ -221,11 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
         getMoves(row, col);
     });
 
-    // Function to handle mouse move events on the document
-    canvas.addEventListener('mousemove', function(event) {
-
-    });
-
     function listePresente(listePrincipale, listeRecherchee) {
         for (let sousListe of listePrincipale) {
             let correspond = true;
@@ -285,10 +295,16 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedPiece = null;
     });
 
+    // Print map to console
     document.addEventListener('keydown', function(event) {
         if (event.key === ' ') {
             console.log(map);
+        }else if (event.key === 'm') {
+            StartManche();
         }
+    });
+
+    document.addEventListener('keydown', function(event) {
     });
 
     // Function to get the piece at specified coordinates
