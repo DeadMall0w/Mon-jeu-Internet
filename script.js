@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // canvas.width = gridSize * 100;
     // canvas.height = gridSize * 100;
-    canvas.width = gridSize * 100;
-    canvas.height = gridSize * 100;
-    
-    const cellSize = canvas.width / gridSize;
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+
+    const cellSize = canvas.height / gridSize;
     function createMap(){
         for (var i = 0; i < gridSize; i++) {
             map[i] = [];
