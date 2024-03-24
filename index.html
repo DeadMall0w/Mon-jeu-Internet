@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Board</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <canvas id="board" width="400" height="400"></canvas>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-area">
+        <canvas id="board" width="400" height="400"></canvas>
+    </div>
+    <div id="game-info">
+        <div id="round-info">
+            <h2>Manche en cours</h2>
+            <p id="Player-turn">Tour du joueur : O</p>
+            <p id="Winner">Gagnant : </p>
+        </div>
+        <div id="victory-info">
+            <h2>Victoires</h2>
+            <ul id="victory-list">
+                <li>Manche 1 : O</li>
+                <li>Manche 2 : X</li>
+            </ul>
+        </div>
+    </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
