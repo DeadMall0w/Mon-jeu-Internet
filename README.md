@@ -54,7 +54,7 @@ Un pion peut bloquer un autre pion et l'empêcher de bouger en étant à côté 
 > Ici, le pion X et le pion O sont bloqué car un pion ennemi les bloque, ils ne peuvent donc pas bouger.
 
 ### Pion capturé
-Un pion peut être capturé en se déplaçant dessus. 
+Un pion peut être capturé en se déplaçant dessus, le pion capturé et ainsi perdu pour le reste de la manche.
  
 ![Pion bloqué](Img/Regles/pion_capture.png)
 
