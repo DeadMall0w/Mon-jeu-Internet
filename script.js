@@ -8,7 +8,15 @@ class Pion {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const playerTurn = document.getElementById('Player-turn');
     let tour = 1; // 1 = joueur 1, 2 = joueur 2
+    if(tour == 1){
+        tour = -1;
+        playerTurn.innerHTML = "Joueur : O";
+    }else{
+        tour = 1;
+        playerTurn.innerHTML = "Joueur : X";
+    }
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
     const gridSize = 6;
@@ -259,8 +267,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if(tour == 1){
                     tour = -1;
+                    playerTurn.innerHTML = "Joueur : O";
                 }else{
                     tour = 1;
+                    playerTurn.innerHTML = "Joueur : X";
                 }
 
                 allLock = true;
