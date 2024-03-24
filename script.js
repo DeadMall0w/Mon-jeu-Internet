@@ -12,11 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
     const gridSize = 6;
-    const cellSize = canvas.width / gridSize;
     let map = [];
     let selectedPiece = null;
     let moves = [];
-
+    
+    // canvas.width = gridSize * 100;
+    // canvas.height = gridSize * 100;
+    canvas.width = gridSize * 100;
+    canvas.height = gridSize * 100;
+    
+    const cellSize = canvas.width / gridSize;
     function createMap(){
         for (var i = 0; i < gridSize; i++) {
             map[i] = [];

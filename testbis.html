@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemple de mise en page avec Flexbox et canvas</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+
+    .left {
+        flex-grow: 1;
+        max-height: 100vh; /* Hauteur maximale de la div gauche à la hauteur de la fenêtre */
+        overflow: hidden; /* Masquer le débordement */
+    }
+
+    /* .left #board {
+        width: 100%; /* Prend toute la largeur disponible */
+        /* height: 100%;  */
+        /* display: block;  Pour supprimer l'espace ajouté par la balise canvas */ */
+    /* }  */
+    .test {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    }
+
+    .right {
+        flex-basis: 100px; /* taille fixe */
+        background-color: lightgreen;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <div class="test">
+            <canvas id="board"></canvas>
+        </div>
+    </div>
+    <div class="right">
+        Contenu de la partie droite
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
