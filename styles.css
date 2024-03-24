@@ -28,9 +28,9 @@ body {
     margin-bottom: 20px;
 }
 
-#round-info h2, #victory-info h2 {
+#round-info h1, #victory-info h1 {
     margin-top: 0;
-    font-size: 36px;
+    font-size: 40px;
     border:2px solid rgb(0, 0, 0);
     border-radius: 10px;
     padding:3px;

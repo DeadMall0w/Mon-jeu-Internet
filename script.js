@@ -8,15 +8,9 @@ class Pion {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    //#region Initialization
     const playerTurn = document.getElementById('Player-turn');
     let tour = 1; // 1 = joueur 1, 2 = joueur 2
-    if(tour == 1){
-        tour = -1;
-        playerTurn.innerHTML = "Joueur : O";
-    }else{
-        tour = 1;
-        playerTurn.innerHTML = "Joueur : X";
-    }
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
     const gridSize = 6;
@@ -34,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         UpdateCanvasSize();
     }, true);
     
+    UpdatePlayerTurn();
     
     function UpdateCanvasSize() {
         canvas.width = window.innerWidth-400;
@@ -77,6 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function UpdatePlayerTurn() {
+        if(tour == 1){
+            tour = -1;
+            playerTurn.innerHTML = "Joueur : O";
+        }else{
+            tour = 1;
+            playerTurn.innerHTML = "Joueur : X";
+        }
+    }
+
     // Function to create a point at specified coordinates
     function createPoint(x, y, player) {
         const row = Math.floor(y / cellSize);
@@ -87,9 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createPointOnGrid(row, col, player) {
-        // if (map[row][col].player == 0) {
-            map[row][col] = new Pion(row, col, player);
-        // }
+        map[row][col] = new Pion(row, col, player);
+
     }
     function removePoint(x, y) {
         const row = Math.floor(y / cellSize);
@@ -99,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function removePointOnGrid(row, col) {
         map[row][col].player = 0; // Réinitialiser le joueur à 0 pour supprimer le pion
-        // console.log(map[row][col].player);
     }
     function drawPointImage(i, j, img) {
         const image = new Image();
@@ -173,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getMoves(y,x){
         draw();
         moves = [];
-        // console.log("étude du joueur en ", x, y, map[y][x]);
+
         let pion = map[y][x];
         //si c'est le bon tour
         if (pion.player != tour){
@@ -205,14 +208,11 @@ document.addEventListener('DOMContentLoaded', function() {
             tryAddMove([y+1,x+(tour*2)]);
         }
         
-        
-        // console.log(moves);
         showMoves(moves);
     }
     
     // Function to handle mouse down events on the canvas
     canvas.addEventListener('mousedown', function(event) {
-        // console.log("Mouse down");
         const x = event.offsetX;
         const y = event.offsetY;
         selectedPiece = getPieceAtPosition(x, y);
@@ -265,13 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 removePointOnGrid(deleteRow,deleteCol);
                 draw();
 
-                if(tour == 1){
-                    tour = -1;
-                    playerTurn.innerHTML = "Joueur : O";
-                }else{
-                    tour = 1;
-                    playerTurn.innerHTML = "Joueur : X";
-                }
+                UpdatePlayerTurn();
 
                 allLock = true;
                 for (let y = 0; y  < gridSize; y++) {
