@@ -8,10 +8,11 @@ class Pion {
 
 document.addEventListener('DOMContentLoaded', function() {
     //#region Initialization
-    let mancheIndex = 0;
+    let roundIndex = 0;
+    let gameStarted = false;
     let tour = 1; // 1 = joueur 1, 2 = joueur 2
 
-    const mancheText = document.getElementById('Manche-index');
+    const roundText = document.getElementById('Round-index');
     const playerTurn = document.getElementById('Player-turn');
     const canvas = document.getElementById('board');
     const ctx = canvas.getContext('2d');
@@ -22,17 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let selectedPiece = null;
     let moves = [];
 
-    canvas.width = window.innerWidth-400;
-    canvas.height = window.innerHeight;
-
-    let cellSize =  Math.min(canvas.height / gridSize, canvas.width / gridSize);
-
+    UpdateCanvasSize();
 
     window.addEventListener('resize', function(event) {
         UpdateCanvasSize();
     }, true);
-    
-    UpdatePlayerTurn();
     
     function UpdateCanvasSize() {
         canvas.width = window.innerWidth-400;
@@ -42,19 +37,26 @@ document.addEventListener('DOMContentLoaded', function() {
         draw();
     }
     
-    function StartManche(){
-        mancheIndex++;
-        console.log("Lancement manche : ", mancheIndex);
-        mancheText.innerHTML = "Manche : " + mancheIndex;
-        if (mancheIndex%2==0){
+    function startRound(){
+        gameStarted = true;
+        roundIndex++;
+        console.log("---")
+        console.log("Begining of round : ", roundIndex);
+        roundText.innerHTML = "Manche : " + roundIndex;
+        createMap();
+        draw();
+        if (roundIndex%2==0){
             tour = 1;
+            console.log("Player 2 start");
         }else{
             tour = -1;
+            console.log("Player 1 start");
         }
         UpdatePlayerTurn();
     }
 
     function createMap(){
+        console.log("Map created !")
         for (var i = 0; i < gridSize; i++) {
             map[i] = [];
             for (var j = 0; j < gridSize; j++) {
@@ -75,7 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         drawGrid();
-        drawPoints();
+        if(gameStarted){
+            drawPoints();
+        }
     }
 
     function drawGrid() {
@@ -95,15 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tour = 1;
             playerTurn.innerHTML = "Joueur : X";
         }
-    }
-
-    // Function to create a point at specified coordinates
-    function createPoint(x, y, player) {
-        const row = Math.floor(y / cellSize);
-        const col = Math.floor(x / cellSize);
-        if (map[row][col].player == 0) {
-            map[row][col] = new Pion(row, col, player);
-        }
+        console.log("Turn of player : ", tour);
     }
 
     function createPointOnGrid(row, col, player) {
@@ -119,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function removePointOnGrid(row, col) {
         map[row][col].player = 0; // Réinitialiser le joueur à 0 pour supprimer le pion
     }
+
     function drawPointImage(i, j, img) {
         const image = new Image();
         image.src = img;
@@ -200,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check for locking position
         if(isLock(x,y)){
-            console.log("lock !");
+            console.log(x,y," Locked !");
             return;
         }
 
@@ -300,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.key === ' ') {
             console.log(map);
         }else if (event.key === 'm') {
-            StartManche();
+            startRound();
         }
     });
 
@@ -320,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const y = event.offsetY;
     });
 
-    // Function to handle click events for removing points
+    // Function to remove contextmenu (right click)
     canvas.addEventListener('contextmenu', function(event) {
         event.preventDefault();
         const x = event.offsetX;
@@ -328,8 +325,4 @@ document.addEventListener('DOMContentLoaded', function() {
         removePoint(x, y,2);
         
     });
-
-    // Draw the grid initially
-    createMap();
-    draw();
 });
