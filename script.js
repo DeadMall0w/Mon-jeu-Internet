@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let selectedPiece = null;
     let moves = [];
 
-    canvas.width = window.innerWidth-100;
+    canvas.width = window.innerWidth-400;
     canvas.height = window.innerHeight;
 
     let cellSize =  Math.min(canvas.height / gridSize, canvas.width / gridSize);
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     function UpdateCanvasSize() {
-        canvas.width = window.innerWidth-100;
+        canvas.width = window.innerWidth-400;
         canvas.height = window.innerHeight;
     
         cellSize =  Math.min(canvas.height / gridSize, canvas.width / gridSize);

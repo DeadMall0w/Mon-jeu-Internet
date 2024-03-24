@@ -9,6 +9,14 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
+        background-color: black;
+        font-family: Cascadia Mono;
+        text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000
     }
 
     .container {
@@ -16,29 +24,64 @@
         flex-direction: row;
     }
 
-    #left {
+    #game-area {
         flex-grow: 1;
         max-height: 100vh;
         overflow: hidden;
     }
 
+    #round-info, #victory-info {
+    margin-bottom: 20px;
+}
 
-    .right {
-        flex-basis: 100px;
-        background-color: lightgreen;
+#round-info h2, #victory-info h2 {
+    margin-top: 0;
+    /* text-decoration-line: overline; */
+
+    font-size: 36px;
+    border-color: #000;
+    border-width:1px;
+}
+
+#victory-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#victory-list li {
+    margin-bottom: 5px;
+}
+
+    #game-info {
+        flex-basis: 300px;
+        background-color: rgba(92, 92, 92, 0.5);
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+        margin: 30px;
+        text-align: center;
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="left">
-        <div class="test">
-            <canvas id="board"></canvas>
-        </div>
+    <div id="game-area">
+        <canvas id="board"></canvas>
     </div>
-    <div class="right">
-        Contenu de la partie droite
+    <<div id="game-info">
+        <div id="round-info">
+            <h2>Manche en cours</h2>
+            <p id="Player-turn">Tour du joueur : O</p>
+            <p id="Winner">Gagnant : </p>
+        </div>
+        <div id="victory-info">
+            <h2>Victoires</h2>
+            <ul id="victory-list">
+                <li>Manche 1 : O</li>
+                <li>Manche 2 : X</li>
+            </ul>
+        </div>
     </div>
 </div>
 <script src="script.js"></script>
