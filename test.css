@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+  }
+  
+  .left-panel {
+    flex: 2; /* Permet à l'image de s'agrandir pour occuper plus d'espace */
+    display: flex;
+    justify-content: flex-end; /* Alignement de l'image à droite */
+    align-items: center; /* Centre verticalement l'image */
+  }
+  
+  .right-panel {
+    flex: 1; /* Permet à la liste de s'agrandir pour occuper tout l'espace disponible */
+  }
+  
+  .image {
+    max-height: 100%; /* La hauteur de l'image ne dépasse pas la hauteur de son conteneur */
+    max-width: 100%; /* La largeur de l'image ne dépasse pas la largeur de son conteneur */
+  }
