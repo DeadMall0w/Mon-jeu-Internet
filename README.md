@@ -3,8 +3,8 @@ C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable [ici]
 
 # Regles
 ## Introduction
-Voici les règles de mon jeu.
-Ce jeu se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
+Voici les règles de mon jeu:
+Il se joue a 2, un joueur représenté par un 'X' et un autre par un 'O'.
 
 ![X](Img/Regles/players.png)
 
