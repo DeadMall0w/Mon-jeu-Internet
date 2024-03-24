@@ -225,6 +225,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to handle mouse down events on the canvas
     canvas.addEventListener('mousedown', function(event) {
+        if(gameStarted == false){
+            console.log("Game not started !");
+            return;
+        }
         const x = event.offsetX;
         const y = event.offsetY;
         selectedPiece = getPieceAtPosition(x, y);
@@ -233,12 +237,12 @@ document.addEventListener('DOMContentLoaded', function() {
         getMoves(row, col);
     });
 
-    function listePresente(listePrincipale, listeRecherchee) {
-        for (let sousListe of listePrincipale) {
+    function isPresentIn(mainList, secondList) {
+        for (let sousListe of mainList) {
             let correspond = true;
-            if (sousListe.length === listeRecherchee.length) {
+            if (sousListe.length === secondList.length) {
                 for (let i = 0; i < sousListe.length; i++) {
-                    if (sousListe[i] !== listeRecherchee[i]) {
+                    if (sousListe[i] !== secondList[i]) {
                         correspond = false;
                         break;
                     }
@@ -253,6 +257,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to handle mouse up events on the document
     canvas.addEventListener('mouseup', function(event) {
+        if(gameStarted == false){
+            console.log("Game not started !");
+            return;
+        }
         const x = event.offsetX;
         const y = event.offsetY;
         if (selectedPiece)
@@ -263,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const newRow =  Math.floor(y / cellSize);
             const newCol = Math.floor(x / cellSize);
 
-            if (listePresente(moves,[newRow, newCol])){
+            if (isPresentIn(moves,[newRow, newCol])){
 
                 if (deleteRow == newRow && deleteCol == newCol){
                     return;
@@ -299,9 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }else if (event.key === 'm') {
             startRound();
         }
-    });
-
-    document.addEventListener('keydown', function(event) {
     });
 
     // Function to get the piece at specified coordinates
