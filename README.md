@@ -8,12 +8,12 @@ Il se joue à 2, le premier joueur est représenté par un 'X' et le deuxième p
 
 ![X](Img/Regles/players.png)
 
-Le jeu se joue en tour par tour sur une grile de taille variable.
-Les joueurs commencent chacun d'un coté du plateau.
+Le jeu se déroule en tour par tour sur une grile de taille variable.
+Les joueurs débutent de chaque côtés du plateau.
 
 ![Image début de partie](Img/Regles/shema_debut_partie.png) 
 ### But
-Le but est de coincé ou capturer tous les pions adversaire en plaçant nos pions de façon a prévoir les prochains mouvments de l'adversaire.
+Le but est de coincé ou capturer tous les pions adverses en déplaçant les pions de façon statégique.
 
 ## Début de partie
 Une partie se compose d'un nombre pair manches.
