@@ -20,10 +20,10 @@ Une partie est répartie en manches.
 - Lors des manches pairs, c'est le joueur X qui commence.
 - Lors des manches impairs, c'est le joueur O qui commence.
 
-Le gagnant est le joueur qui a gagné le plus de manche.
+Le joueur ayant remporté le plus de manches ressort vainqueur.
 
 ## Jouabilité
-Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond.
+Lorsque c'est notre tour, en cliquant sur un pion, les mouvements possibles sont affichés par une croix et un rond superposé.
 
 ![Image pion mouvement](Img/Regles/possible_move_black.png)
 
@@ -31,30 +31,23 @@ Pour déplacer le pion, il suffit de rester appuyé dessus et de le glisser vers
 
 ## Mouvements
 ### Base
-Les pions peuvent avancer uniquement vers l'avant. 
+Les pions peuvent avancer uniquement vers l'avant et en diagonales. Mais lorsque deux pions du même camp sont l'un devant l'autre, le pion arrière peut se déplacer tout autour du pion allié. En revanche, le pion devant garde les même mouvement qu'un pion seul.
 
-### Pions seuls
 ![Pion seul](Img/Regles/mouvement_seul.png)
 
-Un pion seul, peut se déplacer vers l'avant en diagonal uniqument.
-
-### Avec un pion allié devant
-Lorsqu'un pion du même camp est devant, le pion arrière peut se déplacer au-dessus, en dessous, devant ou en diagonale par rapport au pion allié.
 
 ![Pion avec allié](Img/Regles/mouvement_pion_allie2.png)
 
-> Ici, les pions arrière (le pion X le plus à droite, le pion O le plus à gauche) ont plus de mouvements possibles.
-> Les pions devant, ont les meme mouvements qu'un pion seul.
 
 ### Pion bloqué
-Un pion peut bloquer un autre pion et l'empêcher de bouger en étant à côté (au-dessus, en dessous, devant, derrière). Le pion ne peut alors plus se déplacer.
+Un pion peut bloquer un autre pion et l'empêcher de bouger en étant autout. Le pion ne peut alors plus se déplacer.
 
 ![Pion bloqué](Img/Regles/pion_bloque.png)
 
 > Ici, le pion X et le pion O sont bloqué car un pion ennemi les bloque, ils ne peuvent donc pas bouger.
 
 ### Pion capturé
-Un pion peut être capturé en se déplaçant dessus, le pion capturé et ainsi perdu pour le reste de la manche.
+Un pion peut être capturé quand un pion adverse se place au dessus de lui. Le pion capturé et ainsi perdu pour le reste de la manche.
  
 ![Pion bloqué](Img/Regles/pion_capture.png)
 
