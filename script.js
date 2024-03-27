@@ -251,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedPiece = getPieceAtPosition(x, y);
         const row =  Math.floor(y / cellSize);
         const col = Math.floor(x / cellSize);
+        console.log("Click at :", row, col, "piece : " ,selectedPiece.player);
         getMoves(row, col);
     });
 
@@ -336,12 +337,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const col = Math.floor(x / cellSize);
         return map[row][col];
     }
-
-    // Function to handle click events on the canvas
-    canvas.addEventListener('click', function(event) {
-        const x = event.offsetX;
-        const y = event.offsetY;
-    });
 
     // Function to remove contextmenu (right click)
     canvas.addEventListener('contextmenu', function(event) {
