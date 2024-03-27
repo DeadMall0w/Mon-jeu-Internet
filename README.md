@@ -16,8 +16,8 @@ Les joueurs débutent de chaque côtés du plateau.
 Le but est de coincé ou capturer tous les pions adverses en déplaçant les pions de façon statégique.
 
 ## Début de partie
-Une partie se compose d'un nombre pair manches.
-- Lors des manches pairs manche, c'est le joueur X qui commence.
+Une partie est répartie en manches.
+- Lors des manches pairs, c'est le joueur X qui commence.
 - Lors des manches impairs, c'est le joueur O qui commence.
 
 Le gagnant est le joueur qui a gagné le plus de manche.
