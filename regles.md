@@ -62,3 +62,6 @@ Un pion peut être capturé en se déplaçant dessus.
 - Si un joueur n'a plus de pion, ou tous ces pions sont bloqué, il perd.
 - Si les 2 joueurs sont bloqué, c'est celui qui a le plus de pion qui gagne.
 - Si les 2 joueurs ont le même nombre de pion, il y a une égalité.
+
+# Remerciement 
+Un grand merci à Noémie, qui lors de l'écriture de ces règles !
