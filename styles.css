@@ -58,3 +58,12 @@ body {
     margin: 30px;
     text-align: center;
 }
+
+#warning{
+    color:white;
+    font-size:15px;
+    text-align: center;
+    background-color: #252525;
+    margin: 0px 0px 15px 0px;
+    padding: 10px;
+}
