@@ -346,4 +346,6 @@ document.addEventListener('DOMContentLoaded', function() {
         removePoint(x, y,2);
         
     });
+
+    startRound();
 });
