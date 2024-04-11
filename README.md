@@ -2,6 +2,8 @@
 C'est un petit jeu de stratégie à 2 joueurs, fait en javascript, jouable [ici](https://deadmall0w.github.io/Mon-jeu-Internet/)
 
 # Regles
+## Note
+Ce projet n'est pas encore terminé, certaines fonctionalité comme la détection automatique de victoire ne sont pas integré. De ce fait, pour appliquer la victoire quand un joueur gagne il suffit d'appuyer sur X, ou O, selon quel joueur a gagné.
 ## Introduction
 Voici les règles de mon jeu:
 Il se joue à 2, le premier joueur est représenté par un 'X' et le deuxième par un 'O'.
