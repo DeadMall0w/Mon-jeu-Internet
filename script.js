@@ -324,10 +324,12 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(map);
         }else if (event.key === 'm') {
             startRound();
-        }else if (event.key === 'g') {
+        }else if (event.key === 'O') {
             AddVictory("O");
-        }else if (event.key === 'f') {
+            startRound();
+        }else if (event.key === 'X') {
             AddVictory("X");
+            startRound();
         }
     });
 
