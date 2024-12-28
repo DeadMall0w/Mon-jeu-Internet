@@ -64,4 +64,4 @@ Un pion peut être capturé en se déplaçant dessus.
 - Si les 2 joueurs ont le même nombre de pion, il y a une égalité.
 
 # Remerciement 
-Un grand merci à Noémie, qui lors de l'écriture de ces règles !
+Un grand merci à Noémie, qui à écrit ces règles!
